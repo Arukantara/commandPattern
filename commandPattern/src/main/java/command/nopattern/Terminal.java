@@ -1,4 +1,4 @@
-package command;
+package main.java.command.nopattern;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;

@@ -1,7 +1,7 @@
-package command;
+package main.java.command.nopattern;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 import com.google.common.collect.ImmutableList;
 
 public class MenuPrincipal {
@@ -38,25 +38,26 @@ public class MenuPrincipal {
 
 	public static void printMenu() throws IOException {
 		Key option;
-		
 		do {
 		Terminal term = new Terminal();
 		term.clear();	
+
+		ArrayList<Command> menus = new ArrayList<Command>();
+		menus.add(new HelloWorld(term));
+		menus.add(new Suma(term));
+		menus.add(new Answer(term));
 		term.title("Opciones chorras");
-		term.out("1.- HelloWord");
-		term.out("2.- 2+2?");
-		term.out("3.- Answer to most important question");
-		term.out("4.- Submenu");
+		for(int i=0;i<menus.size();i++){
+			term.out(i+1 + ".- " + menus.get(i).mostrar());
+		}
 		term.out("Q+ Quit");
-		ImmutableList<String> options = ImmutableList.of("1", "2", "3", "4"); 
+		ImmutableList<String> options = ImmutableList.of("1", "2", "3"); 
 		term.lines(3);
 		do {
 			option = term.leeOpcion();
 		} while (!option.isQuit() && !options.contains(option.toString()));
 		
-		String value = option.toString();
-		term.lines(3);
-		
+		/*
 		if (value.equals("1")) {
 			term.out("Hello, World!");
 		}
@@ -69,11 +70,14 @@ public class MenuPrincipal {
 		else if(value.equals("4")) {
 			printSubMenu();
 		}
-		
+		*/
 		if (!option.isQuit()) {
+			int value = Integer.parseInt(option.toString());
+			term.lines(3);
+			menus.get(value-1).execute();
 			term.lines(2);
 			term.pause();
-		}
+		}	
 		
 		} while (!option.isQuit());
 	}

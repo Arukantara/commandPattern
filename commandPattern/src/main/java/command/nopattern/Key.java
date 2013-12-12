@@ -1,4 +1,4 @@
-package command;
+package main.java.command.nopattern;
 
 public class Key {
 		String option;

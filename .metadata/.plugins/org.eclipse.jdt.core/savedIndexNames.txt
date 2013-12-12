@@ -1,0 +1,14 @@
+INDEX VERSION 1.126+/home/arukantara/dsspattern/.metadata/.plugins/org.eclipse.jdt.core
+3650917017.index
+765875791.index
+4212579829.index
+2453511236.index
+2237345075.index
+2072299215.index
+1306012150.index
+2064231723.index
+4032064753.index
+3104607789.index
+1439748609.index
+123139858.index
+3371749061.index
